@@ -72,7 +72,7 @@ def _nest_group_tree_list(group_tree_list, group_tree_leaf):
          {'id': group.id,
           'name': group.name,
           'description': group.description,
-          'image_display_url': group.image_display_url,
+          #'image_display_url': group.image_display_url,
           'title': group.title})
         if not root_node:
             root_node = last_node = node
@@ -95,17 +95,17 @@ def _group_tree_branch(root_group, highlight_group_name=None, type='group'):
         {'id': root_group.id,
          'name': root_group.name,
          'description': root_group.description,
-         'image_display_url': root_group.image_display_url,
+         #'image_display_url': root_group.image_display_url,
          'title': root_group.title})
     if root_group.name == highlight_group_name:
         nodes[root_group.id].highlight()
         highlight_group_name = None
-    for group_id, group_name, group_title, description, image_display_url, parent_id in \
+    for group_id, group_name, group_title, description, parent_id in \
             root_group.get_children_group_hierarchy(type=type):
         node = GroupTreeNode({'id': group_id,
                               'name': group_name,
                               'description': description,
-                              'image_display_url': image_display_url,
+                              #'image_display_url': image_display_url,
                               'title': group_title})
         nodes[parent_id].add_child_node(node)
         if highlight_group_name and group_name == highlight_group_name:
